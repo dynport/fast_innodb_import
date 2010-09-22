@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require "fast_innodb_import"
 
-FastInnodbImport.new(ARGV).execute
+FastInnodbImport.execute(ARGV, $stdout)
