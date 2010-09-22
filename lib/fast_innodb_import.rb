@@ -10,6 +10,14 @@ class FastInnodbImport
     @options = options_from_argv(argv)
   end
   
+  def execute
+    print_usage_and_exit if missing_options?
+    file_paths.each do |path|
+      import_data_from_file_path(path)
+    end
+  end
+
+private
   def index_definitions_from_table(table)
     query("SHOW CREATE TABLE #{table}").to_a.first["Create Table"].split("\n").map do |line|
       if line.match(/^\s*KEY \`(.*?)\` \((.*?)\)/)
@@ -59,14 +67,6 @@ class FastInnodbImport
     puts "%d (%d/sec)" % [diff, per_sec]
   end
   
-  def execute
-    print_usage_and_exit if missing_options?
-    file_paths.each do |path|
-      import_data_from_file_path(path)
-    end
-  end
-  
-private
   def missing_options?
     !file_paths.respond_to?(:empty?) || file_paths.empty?
   end
