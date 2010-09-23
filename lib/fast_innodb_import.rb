@@ -3,7 +3,7 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 require "mysql2"
 class FastInnodbImport
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
   CMD_MAPPING = { "u" => :username, "h" => :host, "d" => :database, "p" => "password" }
   
   attr_accessor :options, :stream

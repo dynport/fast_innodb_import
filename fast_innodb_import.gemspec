@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fast_innodb_import}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tobias Schwab"]
-  s.date = %q{2010-09-22}
+  s.date = %q{2010-09-23}
   s.default_executable = %q{fast_innodb_import}
   s.description = %q{Script to import mysqldumps (<table_name>.txt files created with option -T) with "disabled" keys (like DISABLE KEYS for MyISAM Tables)}
   s.email = ["tobias.schwab@dynport.de"]
